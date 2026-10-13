@@ -26,7 +26,8 @@
   (function () {
     var s = null; try { s = localStorage.getItem('ps.lang'); } catch (e) {}
     var n = ((navigator.languages && navigator.languages[0]) || navigator.language || 'es').toLowerCase();
-    var l = s === 'es' || s === 'en' ? s : (n.indexOf('es') === 0 ? 'es' : 'en');
+    var l = s === 'es' || s === 'en' || s === 'zh-CN' ? s : 'zh-CN';
+    if (l === 'zh-CN') { location.replace('../zh/contact/index.html'); return; }
     document.documentElement.lang = l;
     if (l === 'en') document.title = 'Contact · PokéSurvivor';
   })();
